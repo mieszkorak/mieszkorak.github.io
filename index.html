@@ -7,14 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Główny kolor nawiązujący do zaufania i finansów (ciemny turkus/granat) */
             --primary-color: #0f766e; 
             --text-color: #1f2937;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Tło z darmowej bazy zdjęć Unsplash - motyw: kalkulator, dokumenty, finanse */
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
                 url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
@@ -27,11 +25,10 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .card {
-            /* Efekt oszronionego szkła (Glassmorphism) */
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -42,11 +39,6 @@
             width: 100%;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
         }
 
         .profile-img {
@@ -61,97 +53,115 @@
             color: white;
             font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 20px rgba(15, 118, 110, 0.3);
         }
 
-        h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #111827;
-        }
+        h1 { margin: 0; font-size: 1.8rem; font-weight: 700; color: #111827; }
+        .tagline { color: var(--primary-color); font-size: 1.1rem; font-weight: 600; margin: 0.5rem 0 1.5rem; text-transform: uppercase; }
+        
+        .bio { font-size: 1rem; line-height: 1.5; color: #4b5563; margin-bottom: 2rem; }
 
-        .tagline {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0.5rem 0 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .bio {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #4b5563;
-            margin-bottom: 2.5rem;
-            padding: 0 0.5rem;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+        .links { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2.5rem; }
 
         .link-btn {
             text-decoration: none;
             background: #ffffff;
             color: var(--text-color);
-            padding: 1rem;
-            border-radius: 1rem;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
             font-weight: 600;
             border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            font-size: 1.05rem;
+            gap: 10px;
         }
 
-        .link-btn:hover {
+        .link-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+
+        /* Styl formularza */
+        .contact-form {
+            text-align: left;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 2rem;
+        }
+
+        .contact-form h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #111827;
+            text-align: center;
+        }
+
+        .form-group { margin-bottom: 1rem; }
+
+        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #374151; }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+            font-family: inherit;
+            box-sizing: border-box;
+            background: white;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
             border-color: var(--primary-color);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .icon {
-            font-size: 1.3rem;
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
         }
 
-        @media (max-width: 480px) {
-            .card { padding: 2rem 1.5rem; }
-            h1 { font-size: 1.5rem; }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
         }
+
+        .submit-btn:hover { background: #0d665e; }
+
+        @media (max-width: 480px) { .card { padding: 2rem 1.5rem; } }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <div class="profile-img">
-            MR
-        </div>
+        <div class="profile-img">MR</div>
 
         <h1>Mieszko Rak</h1>
         <p class="tagline">Księgowy</p>
 
         <p class="bio">
-            Student Uniwersytetu Kardynała Stefana Wyszyńskiego (UKSW).<br>Oferuję profesjonalne usługi księgowe i wsparcie finansowe.
+            Student UKSW.<br>Profesjonalne usługi księgowe.
         </p>
 
         <div class="links">
-            <!-- Przycisk E-mail -->
-            <a href="mailto:mieszko.rak@gmail.com" class="link-btn">
-                <span class="icon">✉️</span> mieszko.rak@gmail.com
-            </a>
-            
-            <!-- Przycisk Telefon -->
-            <a href="tel:+48535535133" class="link-btn">
-                <span class="icon">📞</span> 535 535 133
-            </a>
+            <a href="mailto:mieszko.rak@gmail.com" class="link-btn">✉️ E-mail</a>
+            <a href="tel:+48535535133" class="link-btn">📞 535 535 133</a>
+        </div>
+
+        <!-- Formularz kontaktowy -->
+        <div class="contact-form">
+            <h3>Napisz do mnie</h3>
+            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                <div class="form-group">
+                    <label>Twój E-mail:</label>
+                    <input type="email" name="email" required placeholder="email@przyklad.pl">
+                </div>
+                <div class="form-group">
+                    <label>Wiadomość:</label>
+                    <textarea name="message" rows="4" required placeholder="W czym mogę pomóc?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+            </form>
         </div>
     </div>
 
